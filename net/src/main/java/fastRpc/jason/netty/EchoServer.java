@@ -9,6 +9,7 @@
  */
 package fastRpc.jason.netty;
 
+import fastRpc.jason.inet.JYSocket;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -35,6 +36,7 @@ public class EchoServer {
     private int localPort;
     private String localIP="";
    public  EchoServerHandler  handler=new EchoServerHandler();
+   private InnerRecviceHander rechander=null;
     public EchoServer(int port) {
         this.localPort = port;
     }
@@ -44,21 +46,24 @@ public class EchoServer {
         this.localPort=port;
     }
     public void run() throws Exception {
-        EventLoopGroup bossGroup = new NioEventLoopGroup(); // (1)
+        EventLoopGroup bossGroup = new NioEventLoopGroup(); 
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
-            ServerBootstrap b = new ServerBootstrap(); // (2)
+            rechander=new InnerRecviceHander();
+            handler.hand=rechander;
+            ServerBootstrap b = new ServerBootstrap(); 
             b.group(bossGroup, workerGroup)
-             .channel(NioServerSocketChannel.class) // (3)
-             .childHandler(new ChannelInitializer<SocketChannel>() { // (4)
+             .channel(NioServerSocketChannel.class) 
+             .childHandler(new ChannelInitializer<SocketChannel>() { 
                  @Override
                  public void initChannel(SocketChannel ch) throws Exception {
                      ch.pipeline().addLast(handler);
                  }
              })
-             .option(ChannelOption.SO_BACKLOG, 128)          // (5)
-             .childOption(ChannelOption.SO_KEEPALIVE, true); // (6)
-            
+             .option(ChannelOption.SO_BACKLOG, 128) //设置TCP缓冲区  
+             .option(ChannelOption.SO_SNDBUF, 32 * 1024) //设置发送数据缓冲大小  
+             .option(ChannelOption.SO_RCVBUF, 32 * 1024) //设置接受数据缓冲大小  
+             .childOption(ChannelOption.SO_KEEPALIVE, true); //保持连接 
             ChannelFuture f =null;
                    if(localIP.isEmpty())
                    {
@@ -68,6 +73,7 @@ public class EchoServer {
                    {
                        f=b.bind(localIP, localPort).sync();
                    }
+                   f.channel().closeFuture().sync(); 
             System.out.println("Server Starting");
            // f.channel().closeFuture().sync();
         } finally {
@@ -75,4 +81,16 @@ public class EchoServer {
             bossGroup.shutdownGracefully();
         }
     }
+    /**
+     * 
+     * @return
+     */
+    public JYSocket recvice()
+    {
+        return rechander.getData();
+    }
+   public void close()
+   {
+       
+   }
 }

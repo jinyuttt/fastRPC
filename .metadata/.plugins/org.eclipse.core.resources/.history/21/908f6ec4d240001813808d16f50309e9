@@ -1,0 +1,297 @@
+/**    
+ * 文件名：udpClient.java    
+ *    
+ * 版本信息：    
+ * 日期：2018年4月16日    
+ * Copyright 足下 Corporation 2018     
+ * 版权所有    
+ *    
+ */
+package fastRpc.jason.udp;
+
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.util.concurrent.LinkedBlockingQueue;
+
+import INet.ISocketHander;
+import fastRpc.jason.inet.INetClient;
+import fastRpc.jason.inet.IRecvieHander;
+import fastRpc.jason.inet.JYSocket;
+import fastRpc.jason.net.JSocket;
+
+/**    
+ *     
+ * 项目名称：net    
+ * 类名称：udpClient    
+ * 类描述：    udp
+ * 创建人：jinyu    
+ * 创建时间：2018年4月16日 上午1:08:22    
+ * 修改人：jinyu    
+ * 修改时间：2018年4月16日 上午1:08:22    
+ * 修改备注：    
+ * @version     
+ *     
+ */
+public class udpClient implements INetClient {
+    DatagramSocket client = null;
+    public String srcIP="";
+    public int  srcPort=0;
+    public String localIP="";
+    public int localPort=0;
+    private ISocketHander hander=null;
+    private  volatile boolean isRun=false;
+    private  volatile boolean isStop=false; 
+    private int recSize=1024*1024;
+    private LinkedBlockingQueue<JYSocket> queue=new LinkedBlockingQueue<JYSocket>();
+    public udpClient()
+    {
+        try {
+            client=new DatagramSocket();
+        } catch (SocketException e) {
+         
+            e.printStackTrace();
+        }
+    }
+    /**
+     * 绑定本地IP端口
+     */
+    private  void bind()
+    {
+        if(!localIP.isEmpty()||localPort!=0)
+        {
+            InetSocketAddress bindpoint=null;
+            if(localIP.isEmpty())
+            {
+                bindpoint = new InetSocketAddress(localPort);
+            }
+            else
+            {
+               bindpoint = new InetSocketAddress(localIP, localPort);
+            }
+            try {
+                client.bind(bindpoint);
+            } catch (IOException e) {
+            
+                e.printStackTrace();
+            }
+        }
+    }
+    /**
+     * 开启线程接收数据
+     */
+    private void  startRec()
+    {
+        if(isRun)
+        {
+            return;
+        }
+        isRun=true;
+        
+        Thread rec=new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+              
+                byte[] buffer=new byte[recSize];
+               
+                while(!isStop)
+                {
+                  try {
+                   DatagramPacket p=new DatagramPacket();
+                int r= client.receive(p);
+                     JYSocket data=new JYSocket();
+                     byte[] tmp=new byte[r];
+                     System.arraycopy(buffer, 0, tmp, 0, r);
+                     data.data=tmp;
+                     if(localIP.isEmpty()||localPort==0)
+                     {
+                          localIP=client.getLocalAddress().getHostAddress();
+                         localPort=client.getLocalPort();
+                     }
+                     data.localIP=localIP;
+                     data.localPort=localPort;
+                     data.srvIP=remoteIP;
+                     data.srvPort=remotePort;
+                     if(hander!=null)
+                     {
+                         hander.recviceData(tmp);
+                         hander.recviceData(data);
+                     }
+                     else
+                     {
+                         queue.offer(data);
+                     }
+                     
+                } catch (IOException e) {
+                    
+                    e.printStackTrace();
+                }
+                }
+            }
+            
+        });
+        rec.setDaemon(true);
+        rec.setName("clietrec");
+        if(!rec.isAlive())
+        {
+           rec.start();
+        }
+    /* (non-Javadoc)    
+     * @see fastRpc.jason.inet.INetClient#setLocalIP(java.lang.String)    
+     */
+    @Override
+    public void setLocalIP(String ip) {
+      this.localIP=ip;
+
+    }
+
+    /* (non-Javadoc)    
+     * @see fastRpc.jason.inet.INetClient#setLocalPort(int)    
+     */
+    @Override
+    public void setLocalPort(int port) {
+       this.localPort=port;
+
+    }
+
+    /* (non-Javadoc)    
+     * @see fastRpc.jason.inet.INetClient#setRemoteIP(java.lang.String)    
+     */
+    @Override
+    public void setRemoteIP(String ip) {
+        this.srcIP=ip;
+
+    }
+
+    /* (non-Javadoc)    
+     * @see fastRpc.jason.inet.INetClient#setRemotePort(int)    
+     */
+    @Override
+    public void setRemotePort(int port) {
+       this.srcPort=port;
+
+    }
+
+    /* (non-Javadoc)    
+     * @see fastRpc.jason.inet.INetClient#setClient(java.lang.Object)    
+     */
+    @Override
+    public void setClient(Object client) {
+      this.client=(DatagramSocket) client;
+
+    }
+
+    /* (non-Javadoc)    
+     * @see fastRpc.jason.inet.INetClient#connect(java.lang.String, int)    
+     */
+    @Override
+    public boolean connect(String remoteIP, int remotePort) {
+        
+        return true;
+    }
+
+    /* (non-Javadoc)    
+     * @see fastRpc.jason.inet.INetClient#connect()    
+     */
+    @Override
+    public boolean connect() {
+       
+        return true;
+    }
+
+    /* (non-Javadoc)    
+     * @see fastRpc.jason.inet.INetClient#sendData(byte[])    
+     */
+    @Override
+    public void sendData(byte[] data) {
+        InetAddress ip = null;
+        try {
+            ip = InetAddress.getByName(srcIP);
+        } catch (UnknownHostException e1) {
+        
+            e1.printStackTrace();
+        }
+        DatagramPacket sendPacket = new DatagramPacket(data, data.length, ip,srcPort);
+        try {
+           client.send(sendPacket);
+       } catch (IOException e) {
+       
+           e.printStackTrace();
+       }
+       
+
+    }
+
+    /* (non-Javadoc)    
+     * @see fastRpc.jason.inet.INetClient#sendData(java.lang.String, int, byte[])    
+     */
+    @Override
+    public void sendData(String ip, int port, byte[] data) {
+        InetAddress addr = null;
+        try {
+            addr = InetAddress.getByName(ip);
+        } catch (UnknownHostException e1) {
+        
+            e1.printStackTrace();
+        }
+        DatagramPacket sendPacket = new DatagramPacket(data, data.length, addr,port);
+        try {
+           client.send(sendPacket);
+       } catch (IOException e) {
+       
+           e.printStackTrace();
+       }
+
+    }
+
+    /* (non-Javadoc)    
+     * @see fastRpc.jason.inet.INetClient#recviceData()    
+     */
+    @Override
+    public byte[] recviceData() {
+        
+        return null;
+    }
+
+    /* (non-Javadoc)    
+     * @see fastRpc.jason.inet.INetClient#recvice()    
+     */
+    @Override
+    public JYSocket recvice() {
+    
+        return null;
+    }
+
+    /* (non-Javadoc)    
+     * @see fastRpc.jason.inet.INetClient#startRecvice(fastRpc.jason.inet.IRecvieHander)    
+     */
+    @Override
+    public void startRecvice(IRecvieHander hander) {
+       
+
+    }
+
+    /* (non-Javadoc)    
+     * @see fastRpc.jason.inet.INetClient#setBufferSize(int)    
+     */
+    @Override
+    public void setBufferSize(int size) {
+        
+
+    }
+
+    /* (non-Javadoc)    
+     * @see fastRpc.jason.inet.INetClient#close()    
+     */
+    @Override
+    public void close() {
+      
+
+    }
+
+}

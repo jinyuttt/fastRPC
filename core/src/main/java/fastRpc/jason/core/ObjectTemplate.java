@@ -20,10 +20,7 @@ import org.msgpack.packer.Packer;
 import org.msgpack.template.AbstractTemplate;
 import org.msgpack.template.Templates;
 import org.msgpack.type.ArrayValue;
-import org.msgpack.type.FloatValue;
-import org.msgpack.type.IntegerValue;
 import org.msgpack.type.MapValue;
-import org.msgpack.type.RawValue;
 import org.msgpack.type.Value;
 import org.msgpack.unpacker.Converter;
 import org.msgpack.unpacker.Unpacker;
@@ -72,22 +69,17 @@ public class ObjectTemplate extends AbstractTemplate<Object> {
     }
 
     private static Object toObject(Value value) throws IOException {
+        @SuppressWarnings("resource")
         Converter conv = new Converter(value);
         if (value.isNilValue()) { // null
             return null;
         } else if (value.isRawValue()) { // byte[] or String or maybe Date?
-            // deserialize value to String object
-            RawValue v = value.asRawValue();
             return conv.read(Templates.TString);
         } else if (value.isBooleanValue()) { // boolean
             return conv.read(Templates.TBoolean);
         } else if (value.isIntegerValue()) { // int or long or BigInteger
-            // deserialize value to int
-            IntegerValue v = value.asIntegerValue();
             return conv.read(Templates.TInteger);
         } else if (value.isFloatValue()) { // float or double
-            // deserialize value to double
-            FloatValue v = value.asFloatValue();
             return conv.read(Templates.TDouble);
         } else if (value.isArrayValue()) { // List or Set
             // deserialize value to List object
@@ -101,7 +93,7 @@ public class ObjectTemplate extends AbstractTemplate<Object> {
             MapValue v = value.asMapValue();
 
 
-            Map map = new HashMap<Object, Object>(v.size());
+            Map<Object, Object> map = new HashMap<Object, Object>(v.size());
             for (Map.Entry<Value, Value> entry : v.entrySet()) {
                 Value key = entry.getKey();
                 Value val = entry.getValue();

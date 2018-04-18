@@ -1,0 +1,63 @@
+/**    
+ * 文件名：TimeServerHandler.java    
+ *    
+ * 版本信息：    
+ * 日期：2018年3月19日    
+ * Copyright 足下 Corporation 2018     
+ * 版权所有    
+ *    
+ */
+package fastRpc.jason.netty;
+
+import java.net.InetSocketAddress;
+
+import fastRpc.jason.inet.JYSocket;
+import io.netty.channel.ChannelHandlerAdapter;
+import io.netty.channel.ChannelHandlerContext;
+
+/**    
+ *     
+ * 项目名称：Netty    
+ * 类名称：TimeServerHandler    
+ * 类描述：    
+ * 创建人：jinyu    
+ * 创建时间：2018年3月19日 上午12:43:47    
+ * 修改人：jinyu    
+ * 修改时间：2018年3月19日 上午12:43:47    
+ * 修改备注：    
+ * @version     
+ *     
+ */
+public class EchoServerHandler   extends ChannelHandlerAdapter {
+  public InnerRecviceHander hand=null;
+    @Override
+
+        public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+
+            cause.printStackTrace();
+
+            ctx.close();
+  
+        }
+    @Override  
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {  
+      
+        JYSocket recvicer=new JYSocket();
+        recvicer.data=(byte[]) msg;
+        recvicer.isTcpType=true;
+        InetSocketAddress localAddr = (InetSocketAddress) ctx.channel().localAddress();
+        recvicer.localIP=localAddr.getAddress().getHostAddress();
+        recvicer.localPort=localAddr.getPort();
+        InetSocketAddress remoteAddr=(InetSocketAddress) ctx.channel().remoteAddress();
+        recvicer.srvIP=remoteAddr.getAddress().getHostAddress();
+        recvicer.srvPort=remoteAddr.getPort();
+        reader.recviceData(recvicer);
+
+    }  
+
+    @Override  
+    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {  
+        ctx.flush();  
+    }  
+
+}

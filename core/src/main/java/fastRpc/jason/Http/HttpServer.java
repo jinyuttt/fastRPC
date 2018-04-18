@@ -76,34 +76,7 @@ public void start()
 {
     System.out.println("端口："+port);
     Thread recRequest=new Thread(new Runnable() {
-     private String html(String json)
-     {
-         StringBuffer buf=new StringBuffer();
-         buf.append("<html>");
-         buf.append("<head>");
-         buf.append("<script type=\"text/javascript\" src=\"jquery-3.3.1.min.js\"></script>");
-         buf.append("</head>");
-         buf.append("<body>");
-         buf.append("<script  type=\"text/javascript >");
-         buf.append("var json ="+json+";");
-         buf.append("$(document).ready(function () {");
-         buf.append("document.getElementById(\\\"detail\\\").value=json})");
-           
-      
-         //buf.append("alert(\"调用成功\"");
-        // buf.append("var result = JSON.stringify(JSON.parse(json), null, 4)");
-       //  buf.append("$('#detail').text(json)");
-       
-      
-         buf.append("</script>");
-         buf.append("<p>");
-         buf.append("<textarea id=\"detail\" ></textarea>");
-         buf.append("</p>");
-         buf.append("</body>");
-         buf.append("</html>");
-        return buf.toString();
-     }
-        public void run() {
+     public void run() {
             ServerSocket ser = null;
             try {
                 ser = new ServerSocket(port);

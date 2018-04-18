@@ -42,7 +42,6 @@ public class DownFile {
         htm,
         html
     }
-    private static final String CodeStatus = "200";
     private String ContentType;
 
     /// <summary>

@@ -12,6 +12,7 @@ package fastRpc.jason.udp;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.InetAddress;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import fastRpc.jason.inet.INetServer;
@@ -40,10 +41,15 @@ public class udpServer implements INetServer {
     private  String localIP="";
     private IRecvieHander hander=null;
     private int maxSzie=65535;
+    private int recSize=128*1024;
     private byte[] buffer=null;
     private volatile boolean isRun=false;
     private volatile boolean isStop=false;
     private LinkedBlockingQueue<JYSocket> queue=new LinkedBlockingQueue<JYSocket>();
+    
+    /**
+     * 开启数据接收
+     */
     private void startThread()
     {
         if(isRun)
@@ -136,6 +142,27 @@ public class udpServer implements INetServer {
      */
     @Override
     public boolean start() {
+        try
+        {
+        if(this.localIP.isEmpty())
+         {
+           datagramSocket=new DatagramSocket(this.localPort);
+        }
+        else
+        {
+            InetAddress addr=InetAddress.getByName(localIP);
+            datagramSocket=new DatagramSocket(this.localPort,addr);
+        }
+        datagramSocket.setReceiveBufferSize(recSize);
+        datagramSocket.setSendBufferSize(recSize);
+        }
+        catch(Exception ex)
+        {
+            ex.getStackTrace();
+            return false;
+        }
+        //
+       
         startThread();
         return true;
     }

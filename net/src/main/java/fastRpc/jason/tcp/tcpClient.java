@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
+import java.net.SocketException;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import fastRpc.jason.inet.INetClient;
@@ -42,12 +43,20 @@ public class tcpClient implements INetClient {
     private int localPort=0;
     private String remoteIP="";
     private int remotePort=0;
-    private int recSize=1024*1024;
+    private int recSize=128*1024;
     private LinkedBlockingQueue<JYSocket> queue=new LinkedBlockingQueue<JYSocket>();
     private volatile boolean isStop=false;
     public tcpClient()
     {
         client=new Socket();
+        try {
+            client.setSendBufferSize(recSize);
+            client.setReceiveBufferSize(recSize);
+        } catch (SocketException e) {
+           
+            e.printStackTrace();
+        }
+        
     }
     
     /**

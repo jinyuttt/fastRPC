@@ -1,0 +1,31 @@
+/**    
+ * 文件名：JYData.java    
+ *    
+ * 版本信息：    
+ * 日期：2018年4月15日    
+ * Copyright 足下 Corporation 2018     
+ * 版权所有    
+ *    
+ */
+package fastRpc.jason.inet;
+
+/**    
+ *     
+ * 项目名称：net    
+ * 类名称：JYData    
+ * 类描述：    接收的数据格式
+ * 创建人：jinyu    
+ * 创建时间：2018年4月15日 上午1:39:04    
+ * 修改人：jinyu    
+ * 修改时间：2018年4月15日 上午1:39:04    
+ * 修改备注：    
+ * @version     
+ *     
+ */
+public class JYData {
+public String  srvIP;
+public int srvPort;
+public String localIP;
+public int localPort;
+public byte[]data;
+}

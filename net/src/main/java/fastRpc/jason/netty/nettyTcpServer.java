@@ -9,6 +9,8 @@
  */
 package fastRpc.jason.netty;
 
+import java.util.concurrent.LinkedBlockingQueue;
+
 import fastRpc.jason.inet.INetServer;
 import fastRpc.jason.inet.IRecvieHander;
 import fastRpc.jason.inet.JYSocket;
@@ -33,6 +35,48 @@ public class nettyTcpServer implements INetServer {
    private String localIP="";
    private int localPort=0;
    private IRecvieHander hander=null;
+   private LinkedBlockingQueue<JYSocket> queue=new LinkedBlockingQueue<JYSocket>();
+   private volatile boolean isRun=false;
+   private volatile boolean isStop=false;
+   
+   /**
+    * 开启线程
+    */
+   private void startThread()
+   {
+       if(isRun)
+       {
+           return;
+           
+       }
+       isRun=true;
+       Thread rec=new Thread(new Runnable() {
+
+        @Override
+        public void run() {
+            while(!isStop)
+            {
+            JYSocket data=  server.recvice();
+            if(hander!=null)
+            {
+                hander.recviceData(data.data);
+                hander.recviceData(data);
+            }
+            else
+            {
+                queue.offer(data);
+            }
+           }
+        }
+           
+       });
+       rec.setDaemon(true);
+       rec.setName("netty_Server");
+       if(!rec.isAlive())
+       {
+       rec.start();
+       }
+   }
     /* (non-Javadoc)    
      * @see fastRpc.jason.inet.INetServer#setLocalIP(java.lang.String)    
      */
@@ -59,6 +103,7 @@ public class nettyTcpServer implements INetServer {
           server=new EchoServer(this.localIP,this.localPort);
           try {
             server.run();
+            startThread();
         } catch (Exception e) {
            
             e.printStackTrace();
@@ -81,7 +126,12 @@ public class nettyTcpServer implements INetServer {
      */
     @Override
     public JYSocket recvice() {
-        // TODO Auto-generated method stub
+        try {
+            return queue.take();
+        } catch (InterruptedException e) {
+            
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -90,7 +140,9 @@ public class nettyTcpServer implements INetServer {
      */
     @Override
     public void close() {
-        // TODO Auto-generated method stub
+       isStop=true;
+       isRun=false;
+               
 
     }
 

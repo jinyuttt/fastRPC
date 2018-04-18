@@ -39,11 +39,13 @@ public class TcpServer implements INetServer {
     private IRecvieHander hander=null;
     private  boolean isStop=false;
     private  volatile boolean isRun=false;
+    private int recSize=128*1024;
     private LinkedBlockingQueue<JYSocket> queue=new LinkedBlockingQueue<JYSocket>();
     public TcpServer()
     {
         try {
             serverSocket=new ServerSocket();
+            serverSocket.setReceiveBufferSize(recSize);
         } catch (IOException e) {
            
             e.printStackTrace();

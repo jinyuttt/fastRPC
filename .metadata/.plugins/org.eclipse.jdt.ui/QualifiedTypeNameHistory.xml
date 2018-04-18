@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="fastRpc.jason.core.RPCCore"/>
+<fullyQualifiedTypeName name="java.net.InetSocketAddress"/>
+<fullyQualifiedTypeName name="fastRpc.jason.inet.JYSocket"/>
+<fullyQualifiedTypeName name="fastRpc.jason.net.NetType"/>
+<fullyQualifiedTypeName name="fastRpc.jason.inet.IRecvieHander"/>
+<fullyQualifiedTypeName name="fastRpc.jason.inet.INetClient"/>
+<fullyQualifiedTypeName name="fastRpc.jason.inet.INetServer"/>
+<fullyQualifiedTypeName name="fastRpc.jason.core.RPCProxyClient"/>
+<fullyQualifiedTypeName name="fastRpc.jason.core.RPCParameter"/>
+<fullyQualifiedTypeName name="fastRpc.jason.core.ParameterConvert"/>
+<fullyQualifiedTypeName name="java.net.InetAddress"/>
+</qualifiedTypeNameHistroy>

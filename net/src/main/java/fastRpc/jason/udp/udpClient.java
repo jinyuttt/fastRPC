@@ -45,12 +45,14 @@ public class udpClient implements INetClient {
     private IRecvieHander hander=null;
     private  volatile boolean isRun=false;
     private  volatile boolean isStop=false; 
-    private int recSize=1024*1024;
+    private int recSize=128*1024;
     private LinkedBlockingQueue<JYSocket> queue=new LinkedBlockingQueue<JYSocket>();
     public udpClient()
     {
         try {
             client=new DatagramSocket();
+            client.setSendBufferSize(recSize);
+            client.setSendBufferSize(recSize);
         } catch (SocketException e) {
          
             e.printStackTrace();
