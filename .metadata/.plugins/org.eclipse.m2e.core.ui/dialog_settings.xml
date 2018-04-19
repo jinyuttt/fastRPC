@@ -51,6 +51,7 @@
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
 			<item value="E:\Study\java\fastRPC\net"/>
+			<item value="E:\Study\java\fastRPC\Client"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -63,19 +64,10 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="fastRpc.jason.rpcStarter"/>
-			<item value="fastRpc.jason.core"/>
-			<item value="fastRpc.jason.rpcCore"/>
-			<item value="fastRpc.jason.net"/>
 		</list>
 		<list key="groupId">
-			<item value="fastRpc.jason"/>
 		</list>
 		<list key="artifactId">
-			<item value="rpcStarter"/>
-			<item value="core"/>
-			<item value="rpcCore"/>
-			<item value="net"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

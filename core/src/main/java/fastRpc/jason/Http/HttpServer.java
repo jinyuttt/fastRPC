@@ -10,6 +10,7 @@
 package fastRpc.jason.Http;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -25,7 +26,7 @@ import fastRpc.jason.core.RPCServer;
  *     
  * 项目名称：RPCCore    
  * 类名称：HttpServer    
- * 类描述：    
+ * 类描述：    http服务端信息
  * 创建人：jinyu    
  * 创建时间：2018年3月11日 上午9:48:46    
  * 修改人：jinyu    
@@ -50,9 +51,14 @@ private void init(String conf)
     Properties properties = new Properties();
     FileInputStream in = null;
     try {
-        in = new FileInputStream(conf);
-        properties.load(in);
-        in.close();
+        
+        File config=new File(conf);
+        if(config.isFile()&&config.exists())
+        {
+         in = new FileInputStream(conf);
+         properties.load(in);
+         in.close();
+        }
      
     } catch (Exception e1) {
         e1.printStackTrace();
@@ -60,6 +66,11 @@ private void init(String conf)
      String srcport= properties.getProperty("server.port","7777");
      port=Integer.valueOf(srcport);
 }
+
+/**
+ * 读取配置文件
+ * @param conf 配置文件
+ */
 public void UtilInit(String conf)
 {
     init(conf);

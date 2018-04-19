@@ -9,6 +9,7 @@
  */
 package fastRpc.jason.core;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Properties;
@@ -33,15 +34,25 @@ import fastRpc.jason.inet.IRecvieHander;
 public class RPCCore {
     public static String applicationDir="";
     HashMap<String,String> hash=new HashMap<String,String>();
+    
+    /**
+     * 服务启动初始化
+     * 读取配置文件
+     */
 public void  Init()
 {
     Properties properties = new Properties();
     FileInputStream in = null;
     HashMap<String,String> map=new HashMap<String,String>();
     try {
-        in = new FileInputStream(applicationDir+"/application.properties");
-        properties.load(in);
-        in.close();
+        String appfile=applicationDir+"/config/application.properties";
+        File config=new File(appfile);
+        if(config.isFile()&&config.exists())
+        {
+          in = new FileInputStream(appfile);
+          properties.load(in);
+          in.close();
+        }
      
     } catch (Exception e1) {
         e1.printStackTrace();
@@ -60,6 +71,11 @@ public void  Init()
   
    
 }
+
+/**
+ * 注入其它配置项
+ * @param map
+ */
 public void init(HashMap<String,String> map)
 {
      Init();
@@ -68,9 +84,11 @@ public void init(HashMap<String,String> map)
     {
        hash.putAll(map);
     }
-    
-    
 }
+
+/**
+ * 启动初始化配置
+ */
 public void UtilInit()
 {
     Init();

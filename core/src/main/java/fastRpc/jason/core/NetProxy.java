@@ -3,6 +3,7 @@
  */
 package fastRpc.jason.core;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,15 +13,40 @@ import java.util.Properties;
 import fastRpc.jason.inet.INetClient;
 
 /**
- * @author jinyu
+ * 
+ *     
+ * 项目名称：core    
+ * 类名称：NetProxy    
+ * 类描述：    
+ * 创建人：jinyu    
+ * 创建时间：2018年4月19日 下午9:42:07    
+ * 修改人：jinyu    
+ * 修改时间：2018年4月19日 下午9:42:07    
+ * 修改备注：    
+ * @version     
  *
  */
 public class NetProxy {
+    
+    /**
+     * 
+     *     
+     * 项目名称：core    
+     * 类名称：InnerProxy    
+     * 类描述：   内部请求代理
+     * 创建人：jinyu    
+     * 创建时间：2018年4月19日 下午9:41:58    
+     * 修改人：jinyu    
+     * 修改时间：2018年4月19日 下午9:41:58    
+     * 修改备注：    
+     * @version     
+     *
+     */
     public class InnerProxy
     {
-        private  List<SocketProxy> socket;
-        public String netType="tcp";
-        public String address="127.0.0.1";
+        private  List<SocketProxy> socket;//通信集合
+        public String netType="tcp";//通信类型
+        public String address="127.0.0.1";//地址，端口
         public int port=8888;
         public volatile int index=0;
         public Class<?> cls=null;
@@ -53,11 +79,26 @@ public class NetProxy {
         }
         
     }
+    
+    /**
+     * 
+     *     
+     * 项目名称：core    
+     * 类名称：SocketProxy    
+     * 类描述：    通信关联
+     * 创建人：jinyu    
+     * 创建时间：2018年4月19日 下午9:43:36    
+     * 修改人：jinyu    
+     * 修改时间：2018年4月19日 下午9:43:36    
+     * 修改备注：    
+     * @version     
+     *
+     */
     public class SocketProxy
     {
         private  INetClient socket;
         public String name="";
-        public String address="127.0.0.1";
+        public String address="localhost";
         public int port=8888;
         public void set(INetClient client)
         {
@@ -110,24 +151,31 @@ public class NetProxy {
       
   }
   
+  /**
+   * 初始化读取配置
+   */
   private  void init()
   {
       Properties properties = new Properties();
       FileInputStream in = null;
       HashMap<String,String> map=new HashMap<String,String>();
       try {
-          in = new FileInputStream("client.properties");
-          properties.load(in);
-          in.close();
+          File conf=new File("config/client.properties");
+          if(conf.isFile()&&conf.exists())
+          {
+           in = new FileInputStream("config/client.properties");
+           properties.load(in);
+           in.close();
+          }
        
       } catch (Exception e1) {
           e1.printStackTrace();
       }
-      String addr= properties.getProperty("address","tcp -h 127.0.0.1 -p 8888");
+      String addr= properties.getProperty("address","tcp -h localhost -p 8888");
       netJar=properties.getProperty("netjar", "net.jar");
       map.put("address", addr);
       map.put("netjar", netJar);
-      //
+      //获取所有配置
       for(Object key:properties.keySet())
       {
           map.put(key.toString().trim().toLowerCase(), properties.getProperty(key.toString()));
@@ -162,6 +210,11 @@ public class NetProxy {
       isInit=false;
   }
   
+ /**
+  * 获取通信信息
+  * @param name 服务名称
+  * @return
+  */
   public synchronized SocketProxy getProxy(String name)
   {
       if(name==null||name.trim().isEmpty())
@@ -185,6 +238,7 @@ public class NetProxy {
               }
               if(host!=null)
               {
+                  
                   host=host.trim().toLowerCase();
                   String[]type=host.split(" ");
                   StringBuffer buf=new StringBuffer();
@@ -195,7 +249,7 @@ public class NetProxy {
                           buf.append(type[j].trim().toLowerCase()+";");
                       }
                   }
-                  //
+                  // 按照格式解析通信
                   String[] addr=buf.toString().split(";");
                   tmp.netType=addr[0].trim();
                   for(int k=1;k<addr.length;k++)
@@ -209,7 +263,7 @@ public class NetProxy {
                           tmp.port=Integer.valueOf(addr[k+1].trim());
                       }
                   }
-                  //
+                  //加载客户端通信
                   String clsName= hashCls.getOrDefault(tmp.netType+"_Client", null);
                   if(clsName==null)
                   {

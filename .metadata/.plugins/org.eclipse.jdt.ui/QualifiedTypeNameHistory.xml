@@ -11,4 +11,6 @@
 <fullyQualifiedTypeName name="fastRpc.jason.core.RPCParameter"/>
 <fullyQualifiedTypeName name="fastRpc.jason.core.ParameterConvert"/>
 <fullyQualifiedTypeName name="java.net.InetAddress"/>
+<fullyQualifiedTypeName name="fastRpc.jason.core.RPCMap"/>
+<fullyQualifiedTypeName name="java.io.File"/>
 </qualifiedTypeNameHistroy>

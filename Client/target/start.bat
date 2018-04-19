@@ -1,1 +1,1 @@
-java -jar Client-0.0.1-SNAPSHOT-shaded.jar
+java -jar Client-0.0.1-SNAPSHOT.jar

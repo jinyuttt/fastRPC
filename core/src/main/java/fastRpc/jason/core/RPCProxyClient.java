@@ -34,10 +34,12 @@ public  T execute(String name,List<RPCParameter> hash,Class<?> clsT)
     byte[] para=new byte[0];
     if(hash!=null)
     {
+        //序列化
         NetParameter netp=new NetParameter();
         netp.list=hash;
         para= RPCSerialization.ConvertBit(netp); 
     }
+    //组包
     byte[] data=new byte[method.length+seri.length+para.length+8];
     ByteBuffer buf=ByteBuffer.wrap(data);
     buf.putInt(method.length);
@@ -45,7 +47,11 @@ public  T execute(String name,List<RPCParameter> hash,Class<?> clsT)
     buf.putInt(seri.length);
     buf.put(seri);
     buf.put(para);
+    
+    //发送请求
     NetProxy.getInstance().getProxy(name).sendData(data);
+    
+    //等待接收
     byte[] bytes=  NetProxy.getInstance().getProxy(name).recvice();
     //
     if(bytes!=null)

@@ -30,11 +30,7 @@ public class App
           
         File file = new File(filePath);  
           
-        // /If this abstract pathname is already absolute, then the pathname  
-        // string is simply returned as if by the getPath method. If this  
-        // abstract pathname is the empty abstract pathname then the pathname  
-        // string of the current user directory, which is named by the system  
-        // property user.dir, is returned.  
+       
         filePath = file.getAbsolutePath();//得到windows下的正确路径  
         if(filePath!=null)
         {

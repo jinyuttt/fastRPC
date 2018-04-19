@@ -16,11 +16,11 @@ public class App
 {
     public static void main( String[] args )
     {
-        RPCProxyClient<Void> c=new RPCProxyClient<Void>();
+        RPCProxyClient<String> c=new RPCProxyClient<String>();
         RPCParameter ff=ParameterConvert.StringTo("ss","jinyu");
         List<RPCParameter> list=new ArrayList<RPCParameter>();
         list.add(ff);
-        c.execute("callss", list, Void.class);
-        System.out.println( "Hello World!" );
+      String ss=  c.execute("callss", list, String.class);
+        System.out.println( ss );
     }
 }
