@@ -10,6 +10,7 @@
 package fastRpc.jason.tcp;
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -17,6 +18,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import fastRpc.jason.inet.INetServer;
 import fastRpc.jason.inet.IRecvieHander;
 import fastRpc.jason.inet.JYSocket;
+import fastRpc.jason.net.NetType;
 
 /**    
  *     
@@ -31,6 +33,7 @@ import fastRpc.jason.inet.JYSocket;
  * @version     
  *     
  */
+@NetType("tcp_Server")
 public class TcpServer implements INetServer {
 
     private String localIP="";
@@ -62,12 +65,28 @@ public class TcpServer implements INetServer {
 
             @Override
             public void run() {
+                InetSocketAddress bindpoint=null;
+                if(localIP.isEmpty())
+                {
+                    bindpoint = new InetSocketAddress(localPort);
+                    System.out.println("绑定端口："+localPort);
+                }
+                else
+                {
+                   bindpoint = new InetSocketAddress(localIP, localPort);
+                   System.out.println("绑定端口地址："+localPort+","+localIP);
+                }
+                try {
+                    serverSocket.bind(bindpoint);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
               while(!isStop)
               {
                  try {
                     Socket  client= serverSocket.accept();
                     tcpClient curClient=new tcpClient();
-                    curClient.setClient(curClient);
+                    curClient.setClient(client);
                     JYSocket socket=new JYSocket();
                     if(localIP.isEmpty()||localPort==0)
                     {

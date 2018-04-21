@@ -5031,3 +5031,189 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: end tag nam
 2018-04-19 22:20:07,768 [Worker-22] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml clean
 2018-04-19 22:20:22,412 [Worker-28] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\Client
 2018-04-19 22:20:22,414 [Worker-28] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml install
+2018-04-20 23:32:28,340 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-04-21 10:36:27,758 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-04-21 10:36:39,620 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-21 10:36:39,621 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\main\resources
+2018-04-21 10:36:39,624 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-21 10:36:39,624 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\test\resources
+2018-04-21 10:36:41,913 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-21 10:36:41,914 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\core\src\main\resources
+2018-04-21 10:36:41,915 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-21 10:36:41,916 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\core\src\test\resources
+2018-04-21 10:36:42,710 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-21 10:36:42,710 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Server\src\main\resources
+2018-04-21 10:36:42,712 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-21 10:36:42,712 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Server\src\test\resources
+2018-04-21 10:36:43,331 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-21 10:36:43,331 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\main\resources
+2018-04-21 10:36:43,332 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-21 10:36:43,333 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\test\resources
+2018-04-21 10:36:44,206 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-21 10:36:44,207 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\rpcStarter\src\main\resources
+2018-04-21 10:36:44,208 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-21 10:36:44,209 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\rpcStarter\src\test\resources
+2018-04-21 15:45:31,070 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-04-22 02:24:16,950 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-04-22 02:24:36,657 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:24:36,657 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\main\resources
+2018-04-22 02:24:36,659 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:24:36,660 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\test\resources
+2018-04-22 02:24:41,040 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:24:41,041 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\core\src\main\resources
+2018-04-22 02:24:41,042 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:24:41,042 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\core\src\test\resources
+2018-04-22 02:24:42,015 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:24:42,015 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Server\src\main\resources
+2018-04-22 02:24:42,016 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:24:42,017 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Server\src\test\resources
+2018-04-22 02:24:42,510 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:24:42,510 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\main\resources
+2018-04-22 02:24:42,511 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:24:42,512 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\test\resources
+2018-04-22 02:24:43,205 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:24:43,206 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\rpcStarter\src\main\resources
+2018-04-22 02:24:43,207 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:24:43,207 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\rpcStarter\src\test\resources
+2018-04-22 02:24:51,780 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:24:51,781 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\main\resources
+2018-04-22 02:24:51,782 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:24:51,783 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\test\resources
+2018-04-22 02:25:16,217 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:25:16,217 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\main\resources
+2018-04-22 02:25:16,218 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:25:16,218 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\test\resources
+2018-04-22 02:29:16,749 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:29:16,750 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\main\resources
+2018-04-22 02:29:16,751 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:29:16,752 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\test\resources
+2018-04-22 02:29:25,232 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:29:25,233 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\main\resources
+2018-04-22 02:29:25,234 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:29:25,234 [Worker-10] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\test\resources
+2018-04-22 02:29:47,079 [Worker-16] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\net
+2018-04-22 02:29:47,080 [Worker-16] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml install
+2018-04-22 02:30:15,377 [Worker-13] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\core
+2018-04-22 02:30:15,378 [Worker-13] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml install
+2018-04-22 02:30:40,125 [Worker-18] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\rpcStarter
+2018-04-22 02:30:40,126 [Worker-18] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml install
+2018-04-22 02:34:02,127 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:34:02,128 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\main\resources
+2018-04-22 02:34:02,129 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:34:02,129 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\test\resources
+2018-04-22 02:34:51,871 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:34:51,871 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\main\resources
+2018-04-22 02:34:51,873 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:34:51,873 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\test\resources
+2018-04-22 02:35:07,959 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:35:07,959 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\main\resources
+2018-04-22 02:35:07,960 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:35:07,960 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\test\resources
+2018-04-22 02:35:14,662 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:35:14,663 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\main\resources
+2018-04-22 02:35:14,664 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:35:14,664 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\test\resources
+2018-04-22 02:35:16,688 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:35:16,688 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\main\resources
+2018-04-22 02:35:16,689 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:35:16,689 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\test\resources
+2018-04-22 02:35:38,985 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:35:38,987 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\main\resources
+2018-04-22 02:35:38,987 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:35:38,987 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\test\resources
+2018-04-22 02:35:47,252 [Worker-9] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\net
+2018-04-22 02:35:47,253 [Worker-9] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml install
+2018-04-22 02:35:56,254 [Worker-11] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\core
+2018-04-22 02:35:56,255 [Worker-11] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml install
+2018-04-22 02:36:06,032 [Worker-21] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\rpcStarter
+2018-04-22 02:36:06,032 [Worker-21] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml install
+2018-04-22 02:41:07,061 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:41:07,061 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\main\resources
+2018-04-22 02:41:07,063 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:41:07,063 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\test\resources
+2018-04-22 02:43:00,640 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:43:00,640 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\main\resources
+2018-04-22 02:43:00,641 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:43:00,641 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\test\resources
+2018-04-22 02:43:32,441 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:43:32,441 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\main\resources
+2018-04-22 02:43:32,442 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:43:32,442 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\test\resources
+2018-04-22 02:43:45,796 [Worker-25] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\net
+2018-04-22 02:43:45,796 [Worker-25] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml clean
+2018-04-22 02:44:38,805 [Worker-26] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\net
+2018-04-22 02:44:38,806 [Worker-26] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml install
+2018-04-22 02:45:30,321 [Worker-27] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\core
+2018-04-22 02:45:30,321 [Worker-27] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml install
+2018-04-22 02:45:49,917 [Worker-27] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\rpcStarter
+2018-04-22 02:45:49,918 [Worker-27] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml install
+2018-04-22 02:51:46,405 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:51:46,406 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\main\resources
+2018-04-22 02:51:46,407 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:51:46,407 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\test\resources
+2018-04-22 02:51:47,430 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:51:47,431 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\main\resources
+2018-04-22 02:51:47,432 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 02:51:47,432 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\net\src\test\resources
+2018-04-22 02:52:32,506 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\net
+2018-04-22 02:52:32,506 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml install
+2018-04-22 02:52:44,995 [Worker-30] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\core
+2018-04-22 02:52:44,996 [Worker-30] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml install
+2018-04-22 02:52:54,964 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\rpcStarter
+2018-04-22 02:52:54,965 [Worker-24] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml install
+2018-04-22 02:56:05,106 [Worker-31] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\net
+2018-04-22 02:56:05,107 [Worker-31] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml clean
+2018-04-22 02:56:12,521 [Worker-37] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\net
+2018-04-22 02:56:12,521 [Worker-37] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml install
+2018-04-22 02:56:22,958 [Worker-34] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\core
+2018-04-22 02:56:22,959 [Worker-34] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml clean
+2018-04-22 02:56:29,829 [Worker-27] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\core
+2018-04-22 02:56:29,829 [Worker-27] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml install
+2018-04-22 02:56:41,635 [Worker-35] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\rpcStarter
+2018-04-22 02:56:41,635 [Worker-35] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml clean
+2018-04-22 02:56:50,544 [Worker-35] INFO  o.e.m.i.launch.MavenLaunchDelegate - E:\Study\java\fastRPC\rpcStarter
+2018-04-22 02:56:50,544 [Worker-35] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B -gs D:\java\apache-maven-3.5.2\conf\settings.xml install
+2018-04-22 03:00:56,668 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:00:56,669 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\main\resources
+2018-04-22 03:00:56,670 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:00:56,670 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\test\resources
+2018-04-22 03:00:57,733 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:00:57,734 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\core\src\main\resources
+2018-04-22 03:00:57,734 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:00:57,735 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\core\src\test\resources
+2018-04-22 03:01:07,645 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:01:07,645 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\main\resources
+2018-04-22 03:01:07,646 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:01:07,646 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\test\resources
+2018-04-22 03:01:12,315 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:01:12,315 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\main\resources
+2018-04-22 03:01:12,316 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:01:12,316 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\test\resources
+2018-04-22 03:01:22,559 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:01:22,559 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\main\resources
+2018-04-22 03:01:22,560 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:01:22,560 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\test\resources
+2018-04-22 03:01:43,983 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:01:43,983 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\main\resources
+2018-04-22 03:01:43,984 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:01:43,984 [Worker-35] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\test\resources
+2018-04-22 03:02:02,733 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:02:02,733 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\main\resources
+2018-04-22 03:02:02,734 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:02:02,734 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\test\resources
+2018-04-22 03:02:07,257 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:02:07,258 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\main\resources
+2018-04-22 03:02:07,258 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:02:07,258 [Worker-38] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\test\resources
+2018-04-22 03:02:12,205 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:02:12,205 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\main\resources
+2018-04-22 03:02:12,206 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:02:12,206 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\test\resources
+2018-04-22 03:02:25,634 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:02:25,634 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\main\resources
+2018-04-22 03:02:25,634 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:02:25,635 [Worker-39] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\test\resources
+2018-04-22 03:02:28,976 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:02:28,976 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\main\resources
+2018-04-22 03:02:28,977 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-04-22 03:02:28,977 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\Study\java\fastRPC\Client\src\test\resources
