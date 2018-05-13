@@ -23,5 +23,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/net"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Rpclog"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

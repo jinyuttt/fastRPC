@@ -15,9 +15,11 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+import fastRpc.jason.Loader.ClassLoaderJar;
 import fastRpc.jason.inet.INetClient;
 import fastRpc.jason.inet.INetServer;
 import fastRpc.jason.net.NetType;
@@ -79,7 +81,7 @@ public class PackageUtil {
      * ArrayList<String>      
      * @throws
      */
-   public static ArrayList<String> getCls(String filejar)
+   public static List<String> getCls(String filejar)
    {
     
        ArrayList<String> myClassName=new ArrayList<String>();
@@ -94,9 +96,13 @@ public class PackageUtil {
        while(entrys.hasMoreElements()){
            try
            {
-           JarEntry jar = entrys.nextElement();
-           String entryName = jar.getName();  
-           entryName = entryName.replace("/", ".").substring(0, entryName.lastIndexOf("."));  
+            JarEntry jar = entrys.nextElement();
+            String entryName = jar.getName();  
+            entryName = entryName.replace("/", ".").substring(0, entryName.lastIndexOf(".")); 
+            if(entryName.contains("META-INF")||entryName.endsWith(".pom"))
+            {
+                continue;
+            }
             myClassName.add(entryName);  
            }
            catch(Exception ex)
@@ -153,17 +159,16 @@ public class PackageUtil {
                  RPCServiceInfo info=new RPCServiceInfo();
                  if(map[0].name()==null||map[0].name().trim().isEmpty())
                  {
+                     //没有映射名称的就使用方法名称的小写
                      name= ms[i].getName().toLowerCase();
-                   
                  }
                  else
                  {
-                     name=map[0].name().trim().toLowerCase();
+                     name=map[0].name();
                  }
-                 info.cls=cls;
-                 info.method=ms[i];
-                 info.methodName= ms[i].getName();
-           
+                 info.cls=cls;//发布服务的类
+                 info.method=ms[i];//方法
+                 info.methodName= ms[i].getName();//方法名称
                   ParameterInfo pinfo = mapPara.getOrDefault(name, null);
                   if(pinfo!=null)
                   {
@@ -203,7 +208,7 @@ public class PackageUtil {
    public static HashMap<String,String>  getNet(String jarPath)
    {
        HashMap<String,String> hash=new HashMap<String,String> ();
-       ArrayList<String> list= getCls(jarPath);
+       List<String> list= getCls(jarPath);
         for(String cls:list)
         {
             Class<?> msCls = null;

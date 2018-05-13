@@ -27,10 +27,7 @@ public class App
             // 截取路径中的jar包名  
             filePath = filePath.substring(0, filePath.lastIndexOf("/") + 1);  
         }  
-          
         File file = new File(filePath);  
-          
-       
         filePath = file.getAbsolutePath();//得到windows下的正确路径  
         if(filePath!=null)
         {
@@ -40,6 +37,7 @@ public class App
         System.out.println(RPCCore.applicationDir);
         RPCCore core=new RPCCore();
         core.UtilInit();
+        //
         System.out.println("启动");
         try {
             System.in.read();

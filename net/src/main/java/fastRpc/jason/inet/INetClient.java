@@ -113,4 +113,18 @@ public void setBufferSize(int size);
  * 关闭
  */
 public void close();
+
+/**
+ * 是否关闭
+ * @return
+ */
+public boolean isClose();
+
+/**
+ * 是否有接收的数据
+ * @return
+ */
+public boolean isHavRec();
+
+public boolean isConnected();
 }

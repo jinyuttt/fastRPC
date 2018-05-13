@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Built-By: jinyu
+Class-Path: ./lib/*  ./lib/*.jar
+Created-By: Apache Maven 3.5.2
+Build-Jdk: 1.8.0_161
+Main-Class: fastRpc.jason.rpcStarter.App
+

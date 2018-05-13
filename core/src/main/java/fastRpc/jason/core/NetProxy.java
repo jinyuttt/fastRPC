@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
-
+import fastRpc.jason.TaskJob.TaskJob;
 import fastRpc.jason.inet.INetClient;
 
 /**
@@ -17,7 +17,7 @@ import fastRpc.jason.inet.INetClient;
  *     
  * 项目名称：core    
  * 类名称：NetProxy    
- * 类描述：    
+ * 类描述：   代理网络通信
  * 创建人：jinyu    
  * 创建时间：2018年4月19日 下午9:42:07    
  * 修改人：jinyu    
@@ -46,7 +46,7 @@ public class NetProxy {
     {
         private  List<SocketProxy> socket;//通信集合
         public String netType="tcp";//通信类型
-        public String address="127.0.0.1";//地址，端口
+        public String address="192.168.3.103";//地址，端口
         public int port=8888;
         public volatile int index=0;
         public Class<?> cls=null;
@@ -61,6 +61,7 @@ public class NetProxy {
                     p.name=name;
                     p.address=address;
                     p.port=port;
+                    p.isUse=true;
                     p.socket.connect(address, port);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -70,11 +71,27 @@ public class NetProxy {
             SocketProxy proxy=  socket.remove(0);
             proxy.address=address;
             proxy.port=port;
-            proxy.socket.connect(address, port);
+            proxy.isUse=true;
+            if(proxy.socket.isClose())
+            {
+               return  get();
+            }
+            else if(!proxy.socket.isConnected())
+            {
+               proxy.socket.connect(address, port);
+            }
+           
             return proxy;
         }
+        
+        /**
+         * 回收对象
+         * 
+         */
         public synchronized void free(SocketProxy e)
         {
+            e.freeTime=System.currentTimeMillis();
+            TaskJob.getInstance().add(e);
             socket.add(e);
         }
         
@@ -98,8 +115,10 @@ public class NetProxy {
     {
         private  INetClient socket;
         public String name="";
-        public String address="localhost";
+        public String address="127.0.0.1";
         public int port=8888;
+        public long freeTime=System.currentTimeMillis();
+        public volatile boolean isUse=false;
         public void set(INetClient client)
         {
             this.socket=client;
@@ -119,7 +138,7 @@ public class NetProxy {
     }
   private static NetProxy  instance=null;
   public static String netJar="net.jar";
-  public  static int maxSize=5;
+  public  static int maxSize=2;
   private static boolean isInit=true;
   
   /**
@@ -291,22 +310,27 @@ public class NetProxy {
                         }
                          p.socket=socket;
                          tmp.socket.add(p);
-                   
                     }
+                    //
+                    TaskJob.getInstance().addList(tmp.socket);
+                  
                   }
-              
           }
-             
-           sockets.put(name, tmp);  
+           sockets.put(pname, tmp);  
       }
      
     return tmp.get();
       
   }
+  
+  /**
+   * 回收使用对象
+   * @param proxy
+   */
   public void freeProxy(SocketProxy proxy)
   {
-      proxy.socket.close();
       InnerProxy inner=  sockets.get(proxy.name);
+      proxy.freeTime=System.currentTimeMillis();
       inner.free(proxy);
   }
 }

@@ -59,8 +59,9 @@ private ReturnValue hander(byte[]request)
     buf.get(rType);
     byte[] param=new byte[buf.limit()-buf.position()];
     buf.get(param);
-    String rpcName=new String(name).trim().toLowerCase();
+    String rpcName=new String(name).trim();
     String rSer=new String(rType).trim().toLowerCase();
+    //获取发布的服务
     RPCServiceInfo ser= RPCServer.getInstance().getSerivce(rpcName);
     ReturnValue rv=new ReturnValue();
     Object result = null;
@@ -137,6 +138,10 @@ private ReturnValue hander(byte[]request)
        result= ser.method.invoke(ser.getObj(), args);
     } catch (Exception e) {
         rv.error=e.getMessage();
+        if(rv.error==null)
+        {
+            rv.error="Server error";
+        }
         e.printStackTrace();
     }
        }
@@ -146,6 +151,10 @@ private ReturnValue hander(byte[]request)
              result= ser.method.invoke(ser.getObj());
         } catch (Exception e) {
             rv.error=e.getMessage();
+            if(rv.error==null)
+            {
+                rv.error="Server error";
+            }
             e.printStackTrace();
         }
        }
@@ -208,7 +217,7 @@ private byte[] ConvertResult(ReturnValue r)
     {
         result=new byte[0];
     }
-    byte[] data=new byte[8+error.length+cls.length+result.length];
+    byte[] data=new byte[12+error.length+cls.length+result.length];
     ByteBuffer buf=ByteBuffer.wrap(data);
     buf.putInt(error.length);
     buf.put(error);

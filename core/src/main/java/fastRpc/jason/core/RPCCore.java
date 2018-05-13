@@ -13,8 +13,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Properties;
+
+import fastRpc.jason.Class.CommlibCls;
 import fastRpc.jason.Http.HttpServer;
 import fastRpc.jason.IRPCNet.RPCRecvicer;
+import fastRpc.jason.Tools.UnitlTools;
 import fastRpc.jason.inet.INetServer;
 import fastRpc.jason.inet.IRecvieHander;
 
@@ -68,9 +71,23 @@ public void  Init()
     map.put("server", serverDir);
     map.put("netjar", netJar);
     hash.putAll(map);
-  
-   
 }
+
+/**
+ * 加载目录中的所有类
+ */
+private void loaderClass()
+{
+    //加载commlib
+    String alldir=hash.getOrDefault("clsPath", "commonlib");
+    alldir= applicationDir+"/"+alldir;
+    if(!UnitlTools.isNumorEmpty(alldir))
+    {
+        String[] allfiles=alldir.split(";");
+        CommlibCls.getComlib().addLibDirs(allfiles);
+    }
+}
+
 
 /**
  * 注入其它配置项
@@ -92,6 +109,7 @@ public void init(HashMap<String,String> map)
 public void UtilInit()
 {
     Init();
+    
     String addr=hash.get("address");
     String port=hash.get("port");
     String netType=hash.get("nettype");
@@ -110,6 +128,8 @@ public void UtilInit()
      buf.append("netJar:"+netJar);
      buf.append("\r\n");
      System.out.println(buf.toString());
+   //加载所有包
+     loaderClass();
     //获取网络包
      HashMap<String,String>   netMap=  PackageUtil.getNet(applicationDir+"/"+netJar);
      //服务
@@ -135,6 +155,7 @@ public void UtilInit()
      HttpServer httpSrc=new HttpServer();
      httpSrc.UtilInit(applicationDir+"/"+serverDir);
      httpSrc.start();
+    
     
 }
 }

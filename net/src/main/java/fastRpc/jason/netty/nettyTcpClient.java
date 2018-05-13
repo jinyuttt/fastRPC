@@ -178,5 +178,18 @@ public class nettyTcpClient implements INetClient{
      this.client.close();
         
     }
+    @Override
+    public boolean isClose() {
+        return isStop;
+    }
+    @Override
+    public boolean isHavRec() {
+       return !queue.isEmpty();
+    }
+    @Override
+    public boolean isConnected() {
+        return isStop;
+      
+    }
 
 }

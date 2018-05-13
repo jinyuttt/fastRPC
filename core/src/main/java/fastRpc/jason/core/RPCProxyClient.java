@@ -8,6 +8,8 @@ import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.util.List;
 
+import fastRpc.jason.core.NetProxy.SocketProxy;
+
 /**
  * @author jinyu
  *  代理
@@ -47,14 +49,15 @@ public  T execute(String name,List<RPCParameter> hash,Class<?> clsT)
     buf.putInt(seri.length);
     buf.put(seri);
     buf.put(para);
-    
     //发送请求
-    NetProxy.getInstance().getProxy(name).sendData(data);
-    
+    SocketProxy proxy=NetProxy.getInstance().getProxy(name);
+    proxy.sendData(data);
+    buf.clear();
     //等待接收
-    byte[] bytes=  NetProxy.getInstance().getProxy(name).recvice();
+    byte[] bytes= proxy.recvice();
+    NetProxy.getInstance().freeProxy(proxy);
     //
-    if(bytes!=null)
+    if(bytes!=null&&bytes.length>0)
     {
         ByteBuffer rbuf=ByteBuffer.wrap(bytes);
         int eLen=rbuf.getInt();
@@ -62,8 +65,10 @@ public  T execute(String name,List<RPCParameter> hash,Class<?> clsT)
         rbuf.get(error);
         int clsLen=rbuf.getInt();
         byte[] clsBytes=new byte[clsLen];
-        buf.get(clsBytes);
-        byte[] rdata=new byte[rbuf.capacity()-rbuf.position()];
+        rbuf.get(clsBytes);
+        //
+        int rLen=rbuf.getInt();
+        byte[] rdata=new byte[rLen];
         rbuf.get(rdata);
         //
         String strerror=new String(error);

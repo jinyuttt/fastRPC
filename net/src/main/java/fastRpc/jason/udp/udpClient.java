@@ -305,5 +305,18 @@ public class udpClient implements INetClient {
       this.client.close();
 
     }
+    @Override
+    public boolean isClose() {
+       return client.isClosed();
+    }
+    @Override
+    public boolean isHavRec() {
+      return !queue.isEmpty();
+    }
+    @Override
+    public boolean isConnected() {
+        
+        return true;
+    }
 
 }

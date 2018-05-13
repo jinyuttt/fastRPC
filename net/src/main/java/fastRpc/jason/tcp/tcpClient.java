@@ -103,7 +103,22 @@ public class tcpClient implements INetClient {
                 while(!isStop)
                 {
                   try {
-                   int r= client.getInputStream().read(buffer);
+                      if(client.isInputShutdown())
+                      {
+                          isStop=true;
+                      }
+                     int r= 0;
+                     try
+                     {
+                         r=client.getInputStream().read(buffer);
+                     }
+                     catch(SocketException ex)
+                     {
+                         if(client.isClosed()||client.isInputShutdown())
+                         {
+                             break;
+                         }
+                     }
                      JYSocket data=new JYSocket();
                      byte[] tmp=new byte[r];
                      System.arraycopy(buffer, 0, tmp, 0, r);
@@ -127,7 +142,9 @@ public class tcpClient implements INetClient {
                          queue.offer(data);
                      }
                      
-                } catch (IOException e) {
+                } 
+                  
+                  catch (IOException e) {
                     
                     e.printStackTrace();
                 }
@@ -221,8 +238,17 @@ public class tcpClient implements INetClient {
     @Override
     public void sendData(byte[] data) {
        try {
-        client.getOutputStream().write(data);
+           if(!client.isClosed())
+           {
+              client.getOutputStream().write(data);
+           }
     } catch (IOException e) {
+        try {
+            client.close();
+        } catch (IOException e1) {
+          
+            e1.printStackTrace();
+        }
         e.printStackTrace();
     }
    
@@ -303,6 +329,22 @@ public class tcpClient implements INetClient {
        this.isRun=false;
        this.queue.clear();
         
+    }
+
+    @Override
+    public boolean isClose() {
+      return client.isClosed();
+    
+    }
+    
+    @Override
+    public boolean isHavRec() {
+        return  !queue.isEmpty();
+    }
+
+    @Override
+    public boolean isConnected() {
+        return client.isConnected();
     }
 
 }

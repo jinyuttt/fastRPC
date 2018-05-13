@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<typeInfo handle="=net/src\/main\/java&lt;fastRpc.jason.inet{INetClient.java[INetClient" modifiers="513" timestamp="1524055482967"/>
+<typeInfo handle="=net/src\/main\/java&lt;fastRpc.jason.inet{INetClient.java[INetClient" modifiers="513" timestamp="1526238375126"/>
 <typeInfo handle="=net/src\/main\/java&lt;fastRpc.jason.inet{IRecvieHander.java[IRecvieHander" modifiers="513" timestamp="1524055482969"/>
 <typeInfo handle="=net/src\/main\/java&lt;fastRpc.jason.inet{INetServer.java[INetServer" modifiers="513" timestamp="1524055482968"/>
+<typeInfo handle="=core/D:\/javapath\/jdk1.8.0_161\/jre\/lib\/rt.jar&lt;java.lang(ClassLoader.class[ClassLoader" modifiers="1025" timestamp="1524933143388"/>
+<typeInfo handle="=core/D:\/javapath\/jdk1.8.0_161\/jre\/lib\/rt.jar&lt;java.net(URLClassLoader.class[URLClassLoader" modifiers="33" timestamp="1524933143388"/>
 </typeInfoHistroy>

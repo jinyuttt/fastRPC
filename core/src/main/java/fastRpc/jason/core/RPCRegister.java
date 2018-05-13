@@ -118,19 +118,24 @@ public class RPCRegister {
     {
         System.out.println("服务注册目录："+jarPath);
         List<String> listJar= PackageUtil.getJarFiles(jarPath);
-        
        for(String file:listJar)
        {
            List<String> cls=PackageUtil.getCls(file);
            for(String clsName:cls)
            {
                HashMap<String,RPCServiceInfo> info=PackageUtil.getRPC(file,clsName);
-               RPCServer.getInstance().register(info);
+               if(!info.isEmpty())
+               {
+                  RPCServer.getInstance().register(info);
+               }
            }
        }
        RPCServer.getInstance().printServer();
     }
     
+   
+    
+   
     /**
      * 
      * @Title: registerService   

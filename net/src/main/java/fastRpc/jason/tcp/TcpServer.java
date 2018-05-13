@@ -73,6 +73,7 @@ public class TcpServer implements INetServer {
                 }
                 else
                 {
+                    System.out.println("绑定地址："+localIP);
                    bindpoint = new InetSocketAddress(localIP, localPort);
                    System.out.println("绑定端口地址："+localPort+","+localIP);
                 }
@@ -98,9 +99,9 @@ public class TcpServer implements INetServer {
                     socket.srvIP=client.getInetAddress().getHostAddress();
                     socket.srvPort=client.getPort();
                     socket.socket=curClient;
+                    socket.isTcpType=true;
                     if(hander!=null)
                     {
-                       
                         hander.recviceData(socket);
                     }
                     else
