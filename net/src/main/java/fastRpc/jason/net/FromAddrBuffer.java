@@ -48,6 +48,7 @@ public class FromAddrBuffer {
       }
      return null;
    }
+   
    public boolean check()
    {
       return hash.isEmpty();
