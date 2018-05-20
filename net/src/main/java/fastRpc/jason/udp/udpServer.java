@@ -35,7 +35,7 @@ import fastRpc.jason.net.NetType;
  *     
  */
 @NetType("udp_Server")
-public class udpServer implements INetServer {
+public class UdpServer implements INetServer {
     private DatagramSocket datagramSocket = null;
     private   int localPort=0;
     private  String localIP="";
@@ -80,7 +80,7 @@ public class udpServer implements INetServer {
                        {
                            JYSocket jclient=new JYSocket();
                            jclient.isTcpType=true;
-                           udpClient c=new udpClient();
+                           UdpClient c=new UdpClient();
                            c.setLocalIP(localIP);
                            c.setLocalPort(localPort);
                            c.setRemoteIP(datagramPacket.getAddress().getHostAddress());

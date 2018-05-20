@@ -21,6 +21,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import fastRpc.jason.inet.INetClient;
 import fastRpc.jason.inet.IRecvieHander;
 import fastRpc.jason.inet.JYSocket;
+import fastRpc.jason.net.NetType;
 import fastRpc.jason.net.Subpackage;
 
 /**    
@@ -36,7 +37,8 @@ import fastRpc.jason.net.Subpackage;
  * @version     
  *     
  */
-public class udpClient implements INetClient {
+@NetType("udp_Client")
+public class UdpClient implements INetClient {
     private  DatagramSocket client = null;
     private String srcIP="";
     private int  srcPort=0;
@@ -47,7 +49,7 @@ public class udpClient implements INetClient {
     private  volatile boolean isStop=false; 
     private int recSize=128*1024;
     private LinkedBlockingQueue<JYSocket> queue=new LinkedBlockingQueue<JYSocket>();
-    public udpClient()
+    public UdpClient()
     {
         try {
             client=new DatagramSocket();
@@ -317,6 +319,11 @@ public class udpClient implements INetClient {
     public boolean isConnected() {
         
         return true;
+    }
+    @Override
+    public byte[] recDirect() {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }

@@ -1,1 +1,1 @@
-java -jar rpcStarter-1.0.0.jar
+java  -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -jar rpcStarter-1.0.0.jar

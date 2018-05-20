@@ -190,7 +190,7 @@ public class NetProxy {
       } catch (Exception e1) {
           e1.printStackTrace();
       }
-      String addr= properties.getProperty("address","tcp -h localhost -p 8888");
+      String addr= properties.getProperty("address","aiotcp -h localhost -p 8888");
       netJar=properties.getProperty("netjar", "net.jar");
       map.put("address", addr);
       map.put("netjar", netJar);

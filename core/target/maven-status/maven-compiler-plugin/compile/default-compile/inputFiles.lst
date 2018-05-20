@@ -29,4 +29,5 @@ E:\Study\java\fastRPC\core\src\main\java\fastRpc\jason\core\JavassistTools.java
 E:\Study\java\fastRPC\core\src\main\java\fastRpc\jason\core\ParameterConvert.java
 E:\Study\java\fastRPC\core\src\main\java\fastRpc\jason\Loader\DiskClassLoader.java
 E:\Study\java\fastRPC\core\src\main\java\fastRpc\jason\core\NetProxy.java
+E:\Study\java\fastRPC\core\src\main\java\fastRpc\jason\IRPCNet\ClientRecvicer.java
 E:\Study\java\fastRPC\core\src\main\java\fastRpc\jason\IRPCNet\RPCRecvicer.java

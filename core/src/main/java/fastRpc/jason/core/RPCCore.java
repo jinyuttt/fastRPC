@@ -62,7 +62,7 @@ public void  Init()
     }
     String addr= properties.getProperty("address","");
     String port=properties.getProperty("port","8888");
-    String netType=properties.getProperty("nettype", "tcp");
+    String netType=properties.getProperty("nettype", "aiotcp");
     String netJar=properties.getProperty("netjar", "net.jar");
     String serverDir=properties.getProperty("server", "server");
     map.put("address", addr);

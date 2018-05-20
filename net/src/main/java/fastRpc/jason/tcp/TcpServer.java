@@ -86,7 +86,7 @@ public class TcpServer implements INetServer {
               {
                  try {
                     Socket  client= serverSocket.accept();
-                    tcpClient curClient=new tcpClient();
+                    TcpClient curClient=new TcpClient();
                     curClient.setClient(client);
                     JYSocket socket=new JYSocket();
                     if(localIP.isEmpty()||localPort==0)

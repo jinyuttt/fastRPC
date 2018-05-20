@@ -90,6 +90,8 @@ public void sendData(String ip,int port,byte[]data);
  */
 public byte[] recviceData();
 
+public byte[] recDirect();
+
 /**
  * 返回特定的格式
  * 有回调时无效
@@ -127,4 +129,5 @@ public boolean isClose();
 public boolean isHavRec();
 
 public boolean isConnected();
+
 }

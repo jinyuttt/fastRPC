@@ -35,7 +35,7 @@ import fastRpc.jason.net.NetType;
  *     
  */
 @NetType("tcp_Client")
-public class tcpClient implements INetClient {
+public class TcpClient implements INetClient {
     private  Socket client=null;
     private IRecvieHander hander=null;
     private  volatile boolean isRun=false;
@@ -46,7 +46,8 @@ public class tcpClient implements INetClient {
     private int recSize=128*1024;
     private LinkedBlockingQueue<JYSocket> queue=new LinkedBlockingQueue<JYSocket>();
     private volatile boolean isStop=false;
-    public tcpClient()
+    private TcpClient  instance=null;
+    public TcpClient()
     {
         client=new Socket();
         try {
@@ -56,7 +57,7 @@ public class tcpClient implements INetClient {
            
             e.printStackTrace();
         }
-        
+        instance=this;
     }
     
     /**
@@ -100,6 +101,7 @@ public class tcpClient implements INetClient {
             @Override
             public void run() {
                 byte[] buffer=new byte[recSize];
+                int errorNum=10;
                 while(!isStop)
                 {
                   try {
@@ -114,11 +116,19 @@ public class tcpClient implements INetClient {
                      }
                      catch(SocketException ex)
                      {
+                         errorNum--;
                          if(client.isClosed()||client.isInputShutdown())
                          {
                              break;
                          }
+                         if(errorNum==0)
+                         {
+                             client.shutdownInput();
+                             
+                         }
+                         continue;
                      }
+                     errorNum=10;
                      JYSocket data=new JYSocket();
                      byte[] tmp=new byte[r];
                      System.arraycopy(buffer, 0, tmp, 0, r);
@@ -132,6 +142,7 @@ public class tcpClient implements INetClient {
                      data.localPort=localPort;
                      data.srvIP=remoteIP;
                      data.srvPort=remotePort;
+                     data.socket=instance;
                      if(hander!=null)
                      {
                          hander.recviceData(tmp);
@@ -345,6 +356,28 @@ public class tcpClient implements INetClient {
     @Override
     public boolean isConnected() {
         return client.isConnected();
+    }
+
+    @Override
+    public byte[] recDirect() {
+        byte[] buffer=new byte[recSize];
+        int r= 0;
+            try {
+                r=client.getInputStream().read(buffer);
+            } catch (IOException e) {
+                try {
+                    client.close();
+                } catch (IOException e1) {
+                  
+                    e1.printStackTrace();
+                }
+                e.printStackTrace();
+                return null;
+            }
+       // JYSocket data=new JYSocket();
+        byte[] tmp=new byte[r];
+        System.arraycopy(buffer, 0, tmp, 0, r);
+        return tmp;
     }
 
 }

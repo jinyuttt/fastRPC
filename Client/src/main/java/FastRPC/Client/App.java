@@ -18,8 +18,8 @@ public class App
     {
         while(true)
         {
-            for(int i=0;i<10;i++)
-            {
+         for(int i=0;i<10;i++)
+               {
          Thread rec=new Thread(new Runnable() {
 
             public void run() {
@@ -41,7 +41,7 @@ public class App
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        }
+       }
         
       
     }

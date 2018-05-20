@@ -191,5 +191,10 @@ public class nettyTcpClient implements INetClient{
         return isStop;
       
     }
+    @Override
+    public byte[] recDirect() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
 }
